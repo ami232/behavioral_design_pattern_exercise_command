@@ -10,26 +10,18 @@ class CommandInvoker:
         self._redo: List[Command] = []
 
     def run(self, cmd: Command) -> None:
-        cmd.execute()
-        self._history.append(cmd)
-        self._redo.clear()
+        # TODO: Implement - execute the command and manage history
+        # Hint: Execute the command, add it to history, and clear redo stack
+        pass
 
     def undo(self, n: int = 1) -> int:
-        undone = 0
-        while n > 0 and self._history:
-            cmd = self._history.pop()
-            cmd.undo()
-            self._redo.append(cmd)
-            n -= 1
-            undone += 1
-        return undone
+        # TODO: Implement - undo the last n commands
+        # Hint: Pop commands from history, call their undo(), move to redo stack
+        # Return the number of commands actually undone
+        pass
 
     def redo(self, n: int = 1) -> int:
-        redone = 0
-        while n > 0 and self._redo:
-            cmd = self._redo.pop()
-            cmd.execute()
-            self._history.append(cmd)
-            n -= 1
-            redone += 1
-        return redone
+        # TODO: Implement - redo the last n undone commands  
+        # Hint: Pop commands from redo stack, execute them, move back to history
+        # Return the number of commands actually redone
+        pass

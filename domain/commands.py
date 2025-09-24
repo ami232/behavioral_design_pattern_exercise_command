@@ -18,10 +18,12 @@ class AddItemCommand(Command):
     item: LineItem
 
     def execute(self) -> None:
-        self.cart.add_item(self.item.sku, self.item.qty, self.item.unit_price)
+        # TODO: Implement - add the item to the cart
+        pass
 
     def undo(self) -> None:
-        self.cart.remove_item(self.item.sku, self.item.qty)
+        # TODO: Implement - remove the item from the cart to undo the add operation
+        pass
 
 
 @dataclass
@@ -33,13 +35,14 @@ class RemoveItemCommand(Command):
     _unit_price: Optional[float] = None
 
     def execute(self) -> None:
-        if self.sku in self.cart.items():
-            self._unit_price = self.cart.items()[self.sku][1]
-        self._actually_removed = self.cart.remove_item(self.sku, self.qty)
+        # TODO: Implement - remove the item from cart and store information needed for undo
+        # Hint: You'll need to track what was actually removed and the unit price
+        pass
 
     def undo(self) -> None:
-        if self._actually_removed > 0 and self._unit_price is not None:
-            self.cart.add_item(self.sku, self._actually_removed, self._unit_price)
+        # TODO: Implement - restore the removed items to the cart
+        # Hint: Use the information stored during execute()
+        pass
 
 
 @dataclass
@@ -49,8 +52,9 @@ class ApplyPercentDiscountCommand(Command):
     _prev: Optional[float] = None
 
     def execute(self) -> None:
-        self._prev = self.cart.set_discount_percent(self.percent)
+        # TODO: Implement - apply the discount and store the previous value for undo
+        pass
 
     def undo(self) -> None:
-        if self._prev is not None:
-            self.cart.set_discount_percent(self._prev)
+        # TODO: Implement - restore the previous discount percentage
+        pass
