@@ -89,6 +89,20 @@ cart.total() -> float  # Subtotal with discount applied
 
 ## Testing Your Implementation
 
+### Setup
+```bash
+# 1) Create a virtual environment (optional)
+# Unix
+python -m venv .venv && source .venv/bin/activate
+
+# Windows: 
+python -m venv .venv
+.venv\Scripts\activate
+
+# 2) Install test dependency
+pip install -r requirements.txt
+```
+
 ### Running Unit Tests
 ```bash
 python -m pytest tests/test_unit_commands.py -v
